@@ -1,0 +1,28 @@
+import sys
+
+if sys.version_info[0] < 3:
+    try:
+        n = int(raw_input("Enter the number of terms: "))
+    except:
+        n = 0
+else:
+    try:
+        n = int(input("Enter the number of terms: "))
+    except EOFError:
+        n = 0
+    except:
+        n = 0
+
+if n <= 0:
+    print("Fibonacci Series:")
+elif n == 1:
+    print("Fibonacci Series:")
+    print("0")
+else:
+    a, b = 0, 1
+    output = []
+    for i in range(n):
+        output.append(str(a))
+        a, b = b, a + b
+    print("Fibonacci Series:")
+    print(' '.join(output))
